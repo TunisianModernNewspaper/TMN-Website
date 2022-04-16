@@ -20,7 +20,6 @@ function Login() {
   const [pass, setPass] = useState();
   const [mailerr, setMailerr] = useState();
   const [passerr, setPasserr] = useState();
-  const [token, setToken] = useState();
 
   const hide = { display: "none" };
   const history = useHistory();
@@ -29,7 +28,6 @@ function Login() {
     await axios
       .post("http://localhost:3000/api/auth/login", bodylogin)
       .then((response) => {
-        setToken(response.data.token);
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("email", mail);
 
@@ -70,13 +68,13 @@ function Login() {
                 backgroundColor: "#ffffff",
               }}
             >
-              <Text weight={700} style={{ color: "#3d3d3d", fontSize: 24 }}>
+              <Text weight={700} style={{ color: "#000000", fontSize: 24 }}>
                 Sign in to your account
               </Text>
               <Space h="ls" />
               <TextInput
                 onChange={(e) => setMail(e.target.value)}
-                icon={<EmailIcon style={{ color: "#3d3d3d" }} />}
+                icon={<EmailIcon style={{ color: "#000000" }} />}
                 size="lg"
                 placeholder="email"
                 radius="xs"
@@ -87,7 +85,7 @@ function Login() {
               <Space h="ls" />
               <PasswordInput
                 onChange={(e) => setPass(e.target.value)}
-                icon={<Lock style={{ color: "#3d3d3d", width: 200 }} />}
+                icon={<Lock style={{ color: "#000000", width: 200 }} />}
                 size="lg"
                 placeholder="password"
                 radius="xs"
@@ -112,7 +110,7 @@ function Login() {
               height: "95vh",
               padding: 20,
               width: "40%",
-              backgroundColor: "#3d3d3d",
+              backgroundColor: "#000000",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -160,13 +158,13 @@ function Login() {
               backgroundColor: "#ffffff",
             }}
           >
-            <Text weight={700} style={{ color: "#3d3d3d", fontSize: 24 }}>
+            <Text weight={700} style={{ color: "#000000", fontSize: 24 }}>
               Sign in to your account
             </Text>
             <Space h="ls" />
             <TextInput
               onChange={(e) => setMail(e.target.value)}
-              icon={<EmailIcon style={{ color: "#3d3d3d" }} />}
+              icon={<EmailIcon style={{ color: "#000000" }} />}
               size="lg"
               placeholder="email"
               radius="xs"
@@ -177,7 +175,7 @@ function Login() {
             <Space h="ls" />
             <PasswordInput
               onChange={(e) => setPass(e.target.value)}
-              icon={<Lock style={{ color: "#3d3d3d" }} />}
+              icon={<Lock style={{ color: "#000000" }} />}
               size="lg"
               placeholder="password"
               radius="xs"

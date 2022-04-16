@@ -6,8 +6,12 @@ import LoginNav from "./pages/auth/loginNavigation";
 import Login from "./pages/auth/login";
 import Signup from "./pages/auth/signup";
 import WelcomePage from "./pages/welcomepage";
-import Category from "./pages/article/category";
+import CategoryContent from "./pages/article/categoryContent";
 import Article from "./pages/article/article";
+import EventContent from "./pages/article/eventContent";
+import PodcastPage from "./pages/article/podcast";
+import SubCategoryContent from "./pages/article/subcategoryContent";
+import EventSubCategoryContent from "./pages/article/eventsubcategoryContent";
 
 function App() {
   return (
@@ -34,12 +38,28 @@ function App() {
             <WelcomePage />
           </Route>
 
-          <Route exact path="/:category(news|blogs|events|podcasts)">
-            <Category />
+          <Route exact path="/:category(news|blogs|podcasts)">
+            <CategoryContent />
           </Route>
 
-          <Route exact path="/:category(news|blogs|events|podcasts)/:id">
+          <Route exact path="/:category(news|blogs|podcasts)/:subcategory">
+            <SubCategoryContent />
+          </Route>
+
+          <Route exact path="/:category(news|blogs)/:subcategory/:id">
             <Article />
+          </Route>
+
+          <Route exact path="/events">
+            <EventContent/>
+          </Route>
+          
+          <Route exact path="/events/:subcategory">
+            <EventSubCategoryContent/>
+          </Route>
+
+          <Route exact path="/podcasts/:subcategory/:id">
+            <PodcastPage/>
           </Route>
 
           <Route exact path="*">

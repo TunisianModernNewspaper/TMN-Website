@@ -6,19 +6,39 @@ export default function() {
       to: "/blog-posts",
     },
     {
-      title: "Add New Post",
-      htmlBefore: '<i class="material-icons">note_add</i>',
-      to: "/add-new-post",
-    },
-    {
-      title: "Users Management",
-      htmlBefore: '<i class="material-icons">table_chart</i>',
-      to: "/tables",
+      title: "Categories",
+      htmlBefore: '<i class="material-icons">view_module</i>',
+      to: "/categories",
     },
     {
       title: "Co-Admins",
       htmlBefore: '<i class="material-icons">table_chart</i>',
       to: "/co-admin",
+    },
+    {
+      title: "Users Management",
+      htmlBefore: '<i class="material-icons">person</i>',
+      to: "/UsersManagement",
+    },
+    {
+      title: "Blogs Management",
+      htmlBefore: '<i class="material-icons">table_chart</i>',
+      to: "/Blogs-management",
+    },
+    {
+      title: "Podcasts Management",
+      htmlBefore: '<i class="material-icons">table_chart</i>',
+      to: "/Podcasts-management",
+    },
+    {
+      title: "News Management",
+      htmlBefore: '<i class="material-icons">table_chart</i>',
+      to: "/News-management",
+    },
+    {
+      title: "Events Management",
+      htmlBefore: '<i class="material-icons">table_chart</i>',
+      to: "/Events-management",
     },
     {
       title: "User Profile",

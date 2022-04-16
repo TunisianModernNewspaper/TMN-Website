@@ -4,9 +4,10 @@ import ArticleCard from "../../components/articleCard";
 import NavBar from "../../components/navbar";
 import { Group, Loader, Center } from "@mantine/core";
 import axios from "axios";
+import PageIndicator from "../../components/pageIndicator";
 
-function Category() {
-  let { category } = useParams();
+function SubCategoryContent() {
+  let { subcategory,category } = useParams();
   let [post, setPost] = useState();
 
   useEffect(() => {
@@ -27,23 +28,24 @@ function Category() {
       <ArticleCard
         title={piece.first_name}
         id={piece.id}
-        category={category}
+        category={subcategory}
         description={piece.last_name}
         src={piece.avatar}
       />
     );
     return "";
   });
-
+  
   return (
     <div>
       <NavBar />
-      <div style={{ paddingLeft: "5%", paddingTop: 1, paddingBottom: 50 }}>
-        <h1 style={{ color: "#3d3d3d", fontSize: 40 }}>{category}</h1>
-        <Group>{rows}</Group>
+      <div style={{ marginLeft:20,paddingTop: 1, paddingBottom: 50 }}>
+        <h1 style={{ color: "#000000", fontSize: 40 }}>category:{category} & subcategory:{subcategory}</h1>
+        <PageIndicator category={category} subcategory={subcategory}></PageIndicator>
+        <Group direction="column">{rows}</Group>
       </div>
     </div>
   );
 }
 
-export default Category;
+export default SubCategoryContent;

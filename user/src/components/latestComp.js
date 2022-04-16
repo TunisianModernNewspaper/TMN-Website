@@ -10,7 +10,7 @@ function LatestNews(props) {
         shadow="sm"
         padding="xl"
         component={Link}
-        to={"/" + props.id}
+        to={"/" + props.category+ "/"+ props.subcategory +"/"+props.id}
       >
         <Card.Section>
           <Image src={props.src} height={200} withPlaceholder />

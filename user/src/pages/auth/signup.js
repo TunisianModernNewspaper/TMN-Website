@@ -11,8 +11,6 @@ import {
   PasswordInput,
   Tooltip,
   MediaQuery,
-  Col,
-  Grid,
 } from "@mantine/core";
 import EmailIcon from "@mui/icons-material/Email";
 import Lock from "@mui/icons-material/LockOutlined";
@@ -147,13 +145,13 @@ function Signup() {
                 backgroundColor: "#ffffff",
               }}
             >
-              <Text weight={700} style={{ color: "#3d3d3d", fontSize: 24 }}>
+              <Text weight={700} style={{ color: "#000000", fontSize: 24 }}>
                 Sign in to your account
               </Text>
               <Space h="ls" />
               <TextInput
                 onChange={(e) => setUsername(e.target.value)}
-                icon={<PersonIcon style={{ color: "#3d3d3d" }} />}
+                icon={<PersonIcon style={{ color: "#000000" }} />}
                 size="lg"
                 placeholder="username"
                 radius="xs"
@@ -164,7 +162,7 @@ function Signup() {
               <Space h="ls" />
               <TextInput
                 onChange={(e) => setMail(e.target.value)}
-                icon={<EmailIcon style={{ color: "#3d3d3d" }} />}
+                icon={<EmailIcon style={{ color: "#000000" }} />}
                 size="lg"
                 placeholder="email"
                 radius="xs"
@@ -173,26 +171,21 @@ function Signup() {
                 required
               />
               <Space h="ls" />
-              <Grid
-                gutter="xs"
-                justify="flex-start"
-                columns={10}
-                style={{ width: "71.5%" }}
-              >
-                <Col span={9}>
+              
+              <div style={{display:'flex',flexDirection:'row',width:'70%'}}>
                   <PasswordInput
                     ref={passRef}
                     onChange={(e) => setPass(e.target.value)}
-                    icon={<Lock style={{ color: "#3d3d3d", width: 200 }} />}
+                    icon={<Lock style={{ color: "#000000", width: 200 }} />}
                     size="lg"
                     placeholder="password"
                     radius="xs"
                     error={passerr}
-                    style={{ width: "100%" }}
+                    style={{ width: "100%", marginRight:'5%', alignSelf:'flex-start' }}
                     required
                   />
-                </Col>
-                <Col span={1}>
+                
+                
                   <Tooltip
                     position="top"
                     placement="center"
@@ -205,19 +198,20 @@ function Signup() {
                         width: 50,
                         height: 50,
                         borderRadius: 1,
-                        backgroundColor: "#3d3d3d",
+                        backgroundColor: "#000000",
+                        alignSelf:'flex-end'
                       }}
                     >
                       <LockResetIcon style={{ color: "#ffffff" }} />
                     </IconButton>
                   </Tooltip>
-                </Col>
-              </Grid>
+                
+              </div>
               <Space h="ls" />
               <PasswordInput
                 ref={cpassRef}
                 onChange={(e) => setCpass(e.target.value)}
-                icon={<Lock style={{ color: "#3d3d3d", width: 200 }} />}
+                icon={<Lock style={{ color: "#000000", width: 200 }} />}
                 size="lg"
                 placeholder="confirm password"
                 radius="xs"
@@ -264,7 +258,7 @@ function Signup() {
             style={{
               padding: 20,
               width: "40%",
-              backgroundColor: "#3d3d3d",
+              backgroundColor: "#000000",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -313,13 +307,13 @@ function Signup() {
               backgroundColor: "#ffffff",
             }}
           >
-            <Text weight={700} style={{ color: "#3d3d3d", fontSize: 24 }}>
+            <Text weight={700} style={{ color: "#000000", fontSize: 24 }}>
               Sign in to your account
             </Text>
             <Space h="ls" />
             <TextInput
               onChange={(e) => setUsername(e.target.value)}
-              icon={<PersonIcon style={{ color: "#3d3d3d" }} />}
+              icon={<PersonIcon style={{ color: "#000000" }} />}
               size="lg"
               placeholder="username"
               radius="xs"
@@ -330,7 +324,7 @@ function Signup() {
             <Space h="ls" />
             <TextInput
               onChange={(e) => setMail(e.target.value)}
-              icon={<EmailIcon style={{ color: "#3d3d3d" }} />}
+              icon={<EmailIcon style={{ color: "#000000" }} />}
               size="lg"
               placeholder="email"
               radius="xs"
@@ -339,26 +333,19 @@ function Signup() {
               required
             />
             <Space h="ls" />
-            <Grid
-              gutter="xs"
-              justify="flex-start"
-              columns={10}
-              style={{ width: "71.5%" }}
-            >
-              <Col span={9}>
+            <div style={{display:'flex',flexDirection:'row',width:'70%'}}>
                 <PasswordInput
                   ref={passRefM}
                   onChange={(e) => setPass(e.target.value)}
-                  icon={<Lock style={{ color: "#3d3d3d", width: 200 }} />}
+                  icon={<Lock style={{ color: "#000000", width: 200 }} />}
                   size="lg"
                   placeholder="password"
                   radius="xs"
                   error={passerr}
-                  style={{ width: "100%" }}
+                  style={{ width: "100%", marginRight:'5%', alignSelf:'flex-start' }}
                   required
                 />
-              </Col>
-              <Col span={1}>
+              
                 <Tooltip
                   position="top"
                   placement="center"
@@ -371,19 +358,19 @@ function Signup() {
                       width: 50,
                       height: 50,
                       borderRadius: 1,
-                      backgroundColor: "#3d3d3d",
+                      backgroundColor: "#000000",
+                      alignSelf:'flex-end' 
                     }}
                   >
                     <LockResetIcon style={{ color: "#ffffff" }} />
                   </IconButton>
                 </Tooltip>
-              </Col>
-            </Grid>
+               </div>
             <Space h="ls" />
             <PasswordInput
               ref={cpassRefM}
               onChange={(e) => setCpass(e.target.value)}
-              icon={<Lock style={{ color: "#3d3d3d", width: 200 }} />}
+              icon={<Lock style={{ color: "#000000", width: 200 }} />}
               size="lg"
               placeholder="confirm password"
               radius="xs"

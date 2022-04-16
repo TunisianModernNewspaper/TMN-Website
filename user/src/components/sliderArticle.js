@@ -18,7 +18,7 @@ function SliderArticle(props) {
           <div
             style={{
               width: "70%",
-              backgroundColor: "#3d3d3d",
+              backgroundColor: "#000000",
               padding: "10px",
               marginLeft: "27%",
             }}

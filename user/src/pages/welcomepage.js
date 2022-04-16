@@ -22,7 +22,7 @@ function WelcomePage() {
               alignItems: "center",
             }}
           >
-            <Text weight={700} style={{ color: "#3d3d3d", fontSize: 48 }}>
+            <Text weight={700} style={{ color: "#000000", fontSize: 48 }}>
               Welcome to Tunisian Modern Newspaper {email}
             </Text>
             <Button

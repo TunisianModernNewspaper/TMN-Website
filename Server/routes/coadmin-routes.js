@@ -75,7 +75,7 @@ router.get("/allCoadmins", (req, res, next) => {
  // delete co admin
 
  router.delete("/deleteCoadmin/:id", (req,res) => {
-  CoAdmin.remove({
+  CoAdmin.deleteOne({
     _id: req.params.id,
   })
     .then(() => {
