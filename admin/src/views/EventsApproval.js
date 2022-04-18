@@ -129,8 +129,6 @@ const EventsManagement = () => {
         </Card>
       </Col>
     </Row>
-
-
     
   </Container>
     );
