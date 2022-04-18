@@ -23,6 +23,7 @@ import NewSubCategory from "./views/NewSubCategory";
 import AddNewNews from "./views/AddNewNews";
 import AddNewEvent from "./views/AddNewEvent";
 import BlogDetails from "./views/BlogDetails";
+import PodcastDetails from "./views/PodcastDetails";
 import EventDetails from "./views/EventDetails";
 
 
@@ -135,5 +136,10 @@ export default [
     path: "/event-Details/:id",
     layout: DefaultLayout,
     component: EventDetails
+  },
+  {
+    path: "/podcast-Details/:id",
+    layout: DefaultLayout,
+    component: PodcastDetails
   },
 ];

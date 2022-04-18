@@ -6,7 +6,6 @@ const CategorySchema = new Schema(
       type: String,
       required: true,
       //unique: true,
-
     },
 
     refrencesTo: {
@@ -19,6 +18,5 @@ const CategorySchema = new Schema(
 
   { timestamps: true }
 );
-
 
 module.exports = model("Category", CategorySchema);
