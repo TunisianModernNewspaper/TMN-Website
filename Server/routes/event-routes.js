@@ -30,7 +30,7 @@ router.post(
       location :req.body.location,
       eventPoster: imageUrl,
       details:req.body.details,
-      status :"on hold ",
+      status :"on hold",
       
     });
   

@@ -8,11 +8,11 @@ function ArticleCard(props) {
     <div>
       <MediaQuery largerThan="md" styles={hide}>
         <Card
-          style={{ width: "900px", height: "300px" }}
+          style={{ width: "900px", height: "300px",marginTop:50 }}
           shadow="xl"
           padding="xl"
           component={Link}
-          to={"/" + props.category + "/" + props.id}
+          to={"/" + props.category + "/" + props.subcategory + "/" +props.id}
         >
           <Card.Section>
             <Image src={props.src} height={450} withPlaceholder />
@@ -21,8 +21,8 @@ function ArticleCard(props) {
             <Text style={{ marginTop: "10px", color:'#fff' }} weight={500} size="xl">
             {props.title}
             </Text>
-            <Text size="sm" lineClamp={3} style={{  color:'#cccccc'}}>
-            {props.description}
+            <Text size="sm" lineClamp={2} style={{  color:'#000'}}>
+            <b>{props.description}</b>
             </Text>
             </div>
             
@@ -38,7 +38,7 @@ function ArticleCard(props) {
           shadow="sm"
           padding="xl"
           component={Link}
-          to={"/" + props.category + "/" + props.id}
+          to={"/" + props.category + "/" + props.subcategory + "/" +props.id}
         >
           <Card.Section>
             <Image src={props.src} height={300} withPlaceholder />

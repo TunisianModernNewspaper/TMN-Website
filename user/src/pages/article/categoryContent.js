@@ -5,7 +5,7 @@ import NavBar from "../../components/navbar";
 import { Loader, Center } from "@mantine/core";
 import axios from "axios";
 import Footer from "../../components/footer";
-
+import imagearticle from "../../media/tst.jpg"
 function CategoryContent() {
   let { category } = useParams();
   let [post, setPost] = useState();
@@ -33,9 +33,10 @@ function CategoryContent() {
       <ArticleCard
         title={piece.title}
         id={piece._id}
-        category='news'//{piece.category}
+        category={category}
+        subcategory={piece.category}//{piece.category}
         description={piece.content}
-        src={piece.image}
+        src={imagearticle}
       />
     );
     

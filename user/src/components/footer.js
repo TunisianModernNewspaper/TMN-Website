@@ -39,7 +39,7 @@ function Footer() {
     return ( 
         <div>
             <MediaQuery largerThan="md" styles={hide}>
-            <SimpleGrid cols={3} style={{position:'relative', bottom:0,left:0,width:'100%', height:'200px', backgroundColor:'#000000', marginTop:'100px'}} position="center">
+            <SimpleGrid cols={3} style={{bottom:0,left:0,width:'100%', height:'200px', backgroundColor:'#000000', marginTop:'350px'}} position="center">
                 <div style={{ width:'100%', height: '100%', display:'flex', justifyContent:'center',alignItems:'center',flexDirection:'column'}}>
                      <Text style={{fontSize:'26px',marginLeft:'20px', fontWeight:700, color:'#fff',display:'flex',alignSelf:'flex-start'}}>Newsletter</Text>
                      <Text style={{fontSize:'14px', marginLeft:'20px', color:'#fff'}}>Want to know what we're up to? sign up for the newsletter and join our tribe</Text>
@@ -67,7 +67,7 @@ function Footer() {
                     <Text style={{fontSize:'26px',marginRight:'20px', fontWeight:700, color:'#fff',display:'flex',alignSelf:'flex-end', marginTop:'-30px'}}>About Us</Text>
                     <Text style={{fontSize:'14px', marginRight:'20px',marginLeft:'20px', color:'#fff',textAlign: 'justify',textJustify: 'inter-word'}}>
                         The mouth of the just shall meditate wisdom
-                        And his language shall be spoken in judgment
+                        And his language shall be spoken in judgment.
                         Blessed is he who suffers temptation
                         Since he, with approval, shall receive the crown of life
                     </Text>
@@ -75,7 +75,7 @@ function Footer() {
             </SimpleGrid>
             </MediaQuery>
             <MediaQuery smallerThan="md" styles={hide}>
-            <Group direction="column" style={{bottom:0,left:0,width:'100%', height:'500px', backgroundColor:'#000000', marginTop:'100px'}} position="center">
+            <Group direction="column" style={{bottom:0,left:0,width:'100%', height:'500px', backgroundColor:'#000000', marginTop:'250px'}} position="center">
                 <div style={{ width:'100%', height: '100%', display:'flex', justifyContent:'center',alignItems:'center',flexDirection:'column'}}>
                      <Text style={{fontSize:'26px',marginLeft:'20px',marginTop:'20px', fontWeight:700, color:'#fff',display:'flex',alignSelf:'flex-start'}}>Newsletter</Text>
                      <Text style={{fontSize:'14px', marginLeft:'20px', color:'#fff',display:'flex',alignSelf:'flex-start'}}>Want to know what we're up to? sign up for the newsletter and join our tribe</Text>
@@ -102,7 +102,7 @@ function Footer() {
                     <Text style={{fontSize:'26px',marginLeft:'20px', fontWeight:700, color:'#fff',display:'flex',alignSelf:'flex-start', marginTop:'30px'}}>About Us</Text>
                     <Text style={{fontSize:'14px', marginRight:'20px',marginLeft:'20px', color:'#fff',textAlign: 'justify',textJustify: 'inter-word'}}>
                         The mouth of the just shall meditate wisdom
-                        And his language shall be spoken in judgment
+                        And his language shall be spoken in judgment.
                         Blessed is he who suffers temptation
                         Since he, with approval, shall receive the crown of life
                     </Text>
