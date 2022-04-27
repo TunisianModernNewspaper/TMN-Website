@@ -6,18 +6,18 @@ const CategorySchema = new Schema(
     title: {
       type: String,
       required: true,
-      unique: true,
+      //unique: true,
     },
 
     refrencesTo: {
       type: String,
       required: true,
-      enum: ["news", "blogs"],
+      enum: ["news", "blogs","podcast"],
     },
   },
   { timestamps: true }
 );
 
-CategorySchema.plugin(uniqueValidator);
+//CategorySchema.plugin(uniqueValidator);
 
 module.exports = model("Category", CategorySchema);

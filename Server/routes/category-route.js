@@ -1,16 +1,10 @@
 const router = require("express").Router();
-const {
-  ensureAuthenticated,
-  ensureAuthorized,
-} = require("../midlewares/auth-middleware.js");
 const Category = require("../models/category");
 
-//add new cathegory
+//add new category
 
 router.post(
-  "/category",
-  ensureAuthenticated,
-  ensureAuthorized(["admin"]),
+  "/addCategory",
   (req, res, next) => {
     const category = new Category({
       title: req.body.title,
@@ -48,7 +42,7 @@ router.get("/allCategorys", (req, res, next) => {
 
 //get one category
 
-router.get("/allCategorys/:id", (res, req, next) => {
+router.get("/allCategorys/:id", (req,res, next) => {
   Category.findOne({
     _id: req.params.id,
   })
@@ -65,6 +59,7 @@ router.get("/allCategorys/:id", (res, req, next) => {
 //delete category
 
 router.delete("/allCategorys/:id", (req, res, next) => {
+  console.log(req.params.id);
   Category.remove({
     _id: req.params.id,
   })

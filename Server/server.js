@@ -39,13 +39,19 @@ const adminRoutes = require("./routes/admin-routes");
 const coAdminRoutes = require("./routes/coadmin-routes");
 const blogRoutes = require("./routes/blog-route");
 const usersRoutes = require("./routes/user-routes");
+const eventRoutes = require("./routes/event-routes");
+const newsRoutes = require("./routes/news-routes");
+const podcastRoutes=require("./routes/podcast-routes");
 app.use("/api/auth", userRoutes);
-app.use("/api/admin", categoryRoutes);
+app.use("/api/categorys", categoryRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/coadmin", coAdminRoutes);
 app.use("/api/blogs", blogRoutes);
-app.use("/api/user", usersRoutes);
-app.use("/images", express.static(path.join(__dirname, "images")));
+app.use("/api/users", usersRoutes);
+app.use("/api/event", eventRoutes);
+app.use("/api/news",newsRoutes);
+app.use("/api/podcasts",podcastRoutes);
+app.use('/images',express.static(path.join(__dirname,'../','images')));
 
 //Error handler
 app.use((req, res, next) => {

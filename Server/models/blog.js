@@ -24,9 +24,15 @@ const BlogSchema = new Schema(
       required: true,
     },
 
-    image2: {
+   author:{
       type: String,
-      required: true,
+      required:false,
+    },
+
+    status:{
+      type : String,
+      required :true ,
+      enum :["aproved","on hold","rejected"]
     },
   },
   { timestamps: true }

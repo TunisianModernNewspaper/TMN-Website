@@ -1,8 +1,5 @@
 const router = require("express").Router();
-const {
-  ensureAuthenticated,
-  ensureAuthorized,
-} = require("../midlewares/auth-middleware.js");
+
 const User = require("../models/user");
 
 //display all the users

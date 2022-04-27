@@ -11,6 +11,7 @@ router.post("/login", (req, res) => {
     name: req.body.name,
     email: req.body.email,
     password: req.body.password,
+    role :"admin" ,
   });
 
   if (
@@ -28,32 +29,16 @@ router.post("/login", (req, res) => {
       });
     });
   } else {
-    errors.password = "Password incorrect";
-    return res.status(400).json(errors);
+    res.status(400).json({"message" :"password incorrect "})
   }
 });
 
-router.post("/addcoadmin", (req, res) => {
-  const coadmin = new CoAdmin({
-    name: req.body.name,
-    email: req.body.email,
-    password: req.body.password,
-  });
 
-  coadmin
-    .save()
-    .then(() => {
-      res.status(201).json({
-        message: "coadmin saved successfully!",
-      });
-    })
-    .catch((error) => {
-      res.status(400).json({
-        error: error,
-      });
-    });
-});
 
-// get all co admins
+
+
+
+
+
 
 module.exports = router;

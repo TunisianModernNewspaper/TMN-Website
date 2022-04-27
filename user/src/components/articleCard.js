@@ -6,44 +6,55 @@ const hide = { display: "none" };
 function ArticleCard(props) {
   return (
     <div>
-      <MediaQuery largerThan="xs" styles={hide}>
+      <MediaQuery largerThan="md" styles={hide}>
         <Card
-          style={{ width: "600px", height: "350px" }}
-          shadow="sm"
+          style={{ width: "900px", height: "300px",marginTop:50 }}
+          shadow="xl"
           padding="xl"
           component={Link}
-          to={"/" + props.category + "/" + props.id}
+          to={"/" + props.category + "/" + props.subcategory + "/" +props.id}
         >
           <Card.Section>
-            <Image src={props.src} height={250} withPlaceholder />
-          </Card.Section>
-          <Text style={{ marginTop: "10px" }} weight={500} size="lg">
+          <img src={`data:image/jpeg;base64,${props.src}`} alt="loading" style={{objectFit:'cover', height:'450px', width:'100%'}}/>
+            
+            
+            <div style={{position:'absolute', paddingLeft:20,paddingRight:20,bottom:0, left:0, backgroundColor:'#00000066', height:100, width:'100%'}}>
+            <Text style={{ marginTop: "10px", color:'#fff' }} weight={500} size="xl">
             {props.title}
-          </Text>
-          <Text size="sm" lineClamp={3}>
-            {props.description}
-          </Text>
+            </Text>
+            <Text size="sm" lineClamp={2} style={{  color:'#e3e3e3',paddingRight:20}}>
+            <b>{props.description}</b>
+            </Text>
+            </div>
+            
+          </Card.Section>
+          
         </Card>
       </MediaQuery>
 
-      <MediaQuery smallerThan="xs" styles={hide}>
+      <MediaQuery smallerThan="md" styles={hide}>
+        <div style={{width:'90vw'}}>
         <Card
-          style={{ width: "400px", height: "300px" }}
+          style={{ width: "100%" }}
           shadow="sm"
           padding="xl"
           component={Link}
-          to={"/" + props.category + "/" + props.id}
+          to={"/" + props.category + "/" + props.subcategory + "/" +props.id}
         >
           <Card.Section>
-            <Image src={props.src} height={200} withPlaceholder />
-          </Card.Section>
-          <Text style={{ marginTop: "10px" }} weight={500} size="lg">
+            <Image src={`data:image/jpeg;base64,${props.src}`} height={300} withPlaceholder />
+            <div style={{position:'absolute', paddingLeft:20,bottom:0, left:0, backgroundColor:'#00000066', height:100, width:'100%'}}>
+            <Text style={{ marginTop: "10px", color:'#fff' }} weight={500} size="xl">
             {props.title}
-          </Text>
-          <Text size="sm" lineClamp={2}>
+            </Text>
+            <Text size="sm" lineClamp={3} style={{  color:'#e3e3e3'}}>
             {props.description}
-          </Text>
+            </Text>
+            </div>
+          </Card.Section>
+          
         </Card>
+        </div>
       </MediaQuery>
     </div>
   );
