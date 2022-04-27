@@ -1,5 +1,4 @@
 const { Schema, model } = require("mongoose");
-const uniqueValidator = require("mongoose-unique-validator");
 
 const CategorySchema = new Schema(
   {
@@ -11,10 +10,12 @@ const CategorySchema = new Schema(
 
     refrencesTo: {
       type: String,
-      required: true,
-      enum: ["news", "blogs","podcast"],
+      required:true,
+      enum:["news","blog","podcast"]
     },
+
   },
+
   { timestamps: true }
 );
 
