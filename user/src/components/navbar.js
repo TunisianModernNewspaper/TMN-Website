@@ -17,7 +17,7 @@ import {
 
 import Fade from 'react-reveal/Fade';
 import { Link } from "react-router-dom";
-import logo from "../media/TMN_inverted.jpg";
+import logo from "../media/TMN_cropped.jpg";
 import logo2 from "../media/TMN_colored.jpg";
 import { makeStyles } from "@mui/styles";
 import FacebookIcon from "@mui/icons-material/Facebook";
@@ -61,14 +61,14 @@ let eventsnav = [];
 
 const useStyles = makeStyles({
   button: {
-    backgroundColor: "#fff",
-    color: "#000000",
+    backgroundColor: "#000",
+    color: "#FFF",
     marginTop: 0,
     height: "52px",
     borderRadius: "0px",
     "&:hover": {
-      backgroundColor: "#000000 !important",
-      color: "#FFFFFF",
+      backgroundColor: "#fff !important",
+      color: "#000",
     },
   },
 
@@ -89,8 +89,8 @@ const useStyles = makeStyles({
   },
 
   buttonDrawer: {
-    backgroundColor: "#fff",
-    color: "#000000",
+    backgroundColor: "#000",
+    color: "#fff",
     marginTop: 0,
     marginBottom: 50,
     height: "52px",
@@ -104,35 +104,35 @@ const useStyles = makeStyles({
   },
 
   fcb: {
-    color: "#000000",
+    color: "#fff",
     "&:hover": {
       color: "#3b5998",
     },
   },
 
   search: {
-    color: "#000000",
+    color: "#fff",
     "&:hover": {
-      color: "#000000",
+      color: "#eee",
     },
   },
 
   ytb: {
-    color: "#000000",
+    color: "#fff",
     "&:hover": {
       color: "#0077b5",
     },
   },
 
   ins: {
-    color: "#000000",
+    color: "#fff",
     "&:hover": {
       color: "#d6249f",
     },
   },
 
   usr: {
-    color: "#000000",
+    color: "#fff",
     "&:hover": {
       color: "#9f9f9f",
     },
@@ -253,7 +253,7 @@ function NavBar() {
             style={{
               width: "101%",
               height: "60px",
-              backgroundColor: "#FFFFFF",
+              backgroundColor: "#000",
               position: "fixed",
               top: "0",
               left: "0",
@@ -262,6 +262,7 @@ function NavBar() {
           >
             <Burger
                 opened={opened}
+                color = {"#fff"}
                 onClick={() => setOpened((o) => !o)}
                 title="drawer"
                 style={{position:'absolute', top:18, left:35}}
@@ -404,7 +405,7 @@ function NavBar() {
             style={{
               width: "101%",
               height: "60px",
-              backgroundColor: "#FFFFFF",
+              backgroundColor: "#000",
               position: "fixed",
               top: "0",
               left: "0",
@@ -413,6 +414,7 @@ function NavBar() {
           >
             <Col span={3} style={centered}>
               <Burger
+              color = {"#fff"}
                 opened={opened}
                 onClick={() => setOpened((o) => !o)}
                 title="drawer"

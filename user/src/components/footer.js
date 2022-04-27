@@ -39,7 +39,7 @@ function Footer() {
     return ( 
         <div>
             <MediaQuery largerThan="md" styles={hide}>
-            <SimpleGrid cols={3} style={{position:'relative',bottom:0,left:0,width:'100%', height:'200px', backgroundColor:'#000000', marginTop:'150px'}} position="center">
+            <SimpleGrid cols={3} style={{position:'relative',bottom:0,left:0,width:'100%', height:'200px', backgroundColor:'#000000', marginTop:'100px'}} position="center">
                 <div style={{ width:'100%', height: '100%', display:'flex', justifyContent:'center',alignItems:'center',flexDirection:'column'}}>
                      <Text style={{fontSize:'26px',marginLeft:'20px', fontWeight:700, color:'#fff',display:'flex',alignSelf:'flex-start'}}>Newsletter</Text>
                      <Text style={{fontSize:'14px', marginLeft:'20px', color:'#fff'}}>Want to know what we're up to? sign up for the newsletter and join our tribe</Text>
