@@ -12,8 +12,6 @@ import EventContent from "./pages/article/eventContent";
 import PodcastPage from "./pages/article/podcast";
 import SubCategoryContent from "./pages/article/subcategoryContent";
 import EventSubCategoryContent from "./pages/article/eventsubcategoryContent";
-import './App.css';
-import SearchResult from "./pages/searchresult";
 
 function App() {
   return (
@@ -62,10 +60,6 @@ function App() {
 
           <Route exact path="/podcasts/:subcategory/:id">
             <PodcastPage/>
-          </Route>
-
-          <Route exact path="/search/:query">
-            <SearchResult/>
           </Route>
 
           <Route exact path="*">
