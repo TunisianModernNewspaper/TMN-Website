@@ -19,6 +19,4 @@ const CategorySchema = new Schema(
   { timestamps: true }
 );
 
-//CategorySchema.plugin(uniqueValidator);
-
 module.exports = model("Category", CategorySchema);
