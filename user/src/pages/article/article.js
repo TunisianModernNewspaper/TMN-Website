@@ -4,6 +4,7 @@ import Footer from "../../components/footer";
 import NavBar from "../../components/navbar";
 import { Loader, Center,Image} from "@mantine/core";
 import axios from "axios";
+import SeeMore from "../../components/seealso";
 
 function Article() {
   let { id, category} = useParams();
