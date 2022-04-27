@@ -1,6 +1,7 @@
-import { Text, Image,Center,Loader } from "@mantine/core";
+import { Text, Image,Center,Loader, Box } from "@mantine/core";
 import axios from "axios";
 import React, {useState, useEffect} from "react";
+import { Link } from "react-router-dom";
 
 function SeeMore() {
     let [blogs, setBlogs] = useState();
@@ -29,16 +30,16 @@ function SeeMore() {
     return ( 
         <div style={{width:'100%',height:'100%', paddingLeft:10,paddingTop:10}}>
             <h3>See Also:</h3>
-            <Smarticle title={nws[0].title} src={nws[0].newsImages} date={nws[0].createdAt.substring(0,10)}/>
-            <Smarticle title={nws[1].title} src={nws[1].newsImages} date={nws[1].createdAt.substring(0,10)}/>
-            <Smarticle title={blogs[0].title} src={blogs[0].image} date={blogs[0].createdAt.substring(0,10)}/>
+            <Smarticle category="news" subcategory={nws[0].category.title} id={nws[0]._id} title={nws[0].title} src={nws[0].newsImages} date={nws[0].createdAt.substring(0,10)}/>
+            <Smarticle category="news" subcategory={nws[1].category.title} id={nws[1]._id} title={nws[1].title} src={nws[1].newsImages} date={nws[1].createdAt.substring(0,10)}/>
+            <Smarticle category="blogs" subcategory={blogs[0].category.title} id={blogs[0]._id} title={blogs[0].title} src={blogs[0].image} date={blogs[0].createdAt.substring(0,10)}/>
         </div>
      );
 }
 
 function Smarticle(props){
     return(
-    <div style={{ width:'280px', height:'100px', display:'flex', marginTop:'5px'}}>
+    <Box style={{textDecoration:'none', width:'280px', height:'100px', display:'flex', marginTop:'5px'}} component={Link} to={"/" + props.category + "/" + props.subcategory + "/" +props.id}>
         <div style={{ width:'150px'}}>
         <img src={`data:image/jpeg;base64,${props.src}`} alt="dis a pic" style={{width:'150px', height:'100%',objectFit:'cover'}}/>
         </div>
@@ -52,7 +53,7 @@ function Smarticle(props){
 
         </div>
         
-    </div>
+    </Box>
     );
 }
 
