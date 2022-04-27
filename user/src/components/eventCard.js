@@ -25,7 +25,7 @@ function EventCard(props) {
             {props.location}
             </Text>
             <Text size="sm" weight={500}  style={{  color:'#e3e3e3',paddingRight:20}}>
-            {props.date}           -           {props.time}
+            {props.time}
             </Text>
             </div>
             

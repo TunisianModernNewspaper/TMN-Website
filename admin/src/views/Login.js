@@ -23,7 +23,7 @@ export default function Login() {
   async function loginFunction() {
     const bodylogin = { name:name,email: email, password: password };
     await axios
-      .post("http://localhost:3000/api/coadmin/login", bodylogin)
+      .post("http://localhost:3000/api/admin/login", bodylogin)
       .then((response) => {
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("email", email);
