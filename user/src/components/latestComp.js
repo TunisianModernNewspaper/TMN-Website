@@ -10,17 +10,17 @@ function LatestNews(props) {
         shadow="sm"
         padding="xl"
         component={Link}
-        to={"/" + props.id}
+        to={"/" + props.category+ "/"+ props.subcategory +"/"+props.id}
       >
         <Card.Section>
-          <Image src={props.src} height={200} withPlaceholder />
+          <Image src={`data:image/jpeg;base64,${props.src}`} height={200} withPlaceholder />
         </Card.Section>
 
         <Text style={{ marginTop: "20px" }} weight={500} size="lg">
           {props.title}
         </Text>
 
-        <Text size="sm">{props.description}</Text>
+        <Text size="sm" lineClamp={1}>{props.description}</Text>
       </Card>
     </div>
   );

@@ -1,78 +1,135 @@
-### Register User
 
-POST http://localhost:3000/api/auth/signup
+// user login
 
-### Login User
 
 POST http://localhost:3000/api/auth/login
 
-### get all users 
-GET http://localhost:3000/api/user/allusers
+//user sign up
+
+POST http://localhost:3000/api/auth/signup
+
+// user logout 
+
+POST http://localhost:3000/api/auth/logout-btn
+
+//add category 
+
+POST http://localhost:3000/api/categorys/addCategory
+
+//all gategorys 
+
+GET http://localhost:3000/api/categorys/allCategorys
+
+//one category 
+
+GET http://localhost:3000/api/categorys/allCategorys/:id
+
+//delete category 
+
+DELETE http://localhost:3000/api/categorys/allCategorys/:id
 
 
-
-### get one user not tested
-GET http://localhost:3000/api/user/allusers/:id
-
-
-
-
-### Logout User
-
-POST http://localhost:3000/api/auth/logout
-
-### Google Auth
-
-GET http://localhost:3000/api/auth/google
-
-### facebook auth 
-
-POST http://localhost:3000/api/auth/facebook  
-
-
-### add a category
-
-POST http://localhost:3000/api/admin/category
-
-### get all category 
-
-GET http://localhost:3000/api/admin/allCategorys
-
-
-### get one category 
-GET http://localhost:3000/api/admin/allCategorys/:id
-
-### delete category 
-
-DELETE http://localhost:3000/api/admin/allCategorys/:id
-
-
-### admin login 
+// admin login 
 
 POST http://localhost:3000/api/admin/login
 
-### add co admins 
+// co admin login
 
-POST http://localhost:3000/api/admin/addcoadmin
-
-### co admin login 
 POST http://localhost:3000/api/coadmin/login
 
-### add blog 
+//add co admin 
+
+POST http://localhost:3000/api/coadmin/addCoadmin
+
+//all co admins
+
+GET http://localhost:3000/api/coadmin/allCoadmins
+
+//delet coadmin 
+
+DELETE http://localhost:3000/api/coadmin/deleteCoadmin/:id
+
+//add new blog 
 
 POST http://localhost:3000/api/blogs/addblog
 
-### all blogs 
+// all blogs
 
-GET http://localhost:3000/api/blogs/addblog
+GET http://localhost:3000/api/blogs/allblogs
+ 
+// one blog 
+
+GET http://localhost:3000/api/blogs/detail/:id
+
+//delete one blog 
+
+DELETE  http://localhost:3000/api/blogs/allblogs/:id
+
+// update a blog 
+
+UPDATE http://localhost:3000/api/blogs/allblogs/:id 
+
+// all users 
+
+GET  http://localhost:3000/api/user/allusers
+
+//get one user 
+
+GET http://localhost:3000/api/users/:id
+
+//user delete
+
+DELETE http://localhost:3000/api/users/allusers/:id
+
+// add event 
+
+POST http://localhost:3000/api/event/addEvent
+
+// get all events
+
+GET http://localhost:3000/api/event/allEvents
+
+// get one event 
+
+GET http://localhost:3000/api/event/allEvents/:id
+
+// delete event
+
+DELETE http://localhost:3000/api/event/deleteEvents/:id
+
+// add news 
+
+POST http://localhost:3000/api/news/addNews
+
+//get all news 
+
+POST http://localhost:3000/api/news/allNews
+
+//get one news 
+
+GET http://localhost:3000/api/news/oneNews/:id
+
+// delete news 
+
+DELETE http://localhost:3000/api/news/deleteNews/:id
+
+// add podcast 
+
+POST  http://localhost:3000/api/addPodcast
+
+//get all podcasts
+GET http://localhost:3000/api/podcasts/allPodcasts
 
 
-### one blog 
+//get one podcasts
 
-GET http://localhost:3000/api/oneblog/:id
+GET http://localhost:3000/api/podcasts/allPodcasts/:id
 
-### delete blog 
 
-DELETE http://localhost:3000/api/allblogs/:id
+
+
+
+
+
 
 

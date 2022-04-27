@@ -10,11 +10,14 @@ const UserSchema = new Schema(
       type: String,
       required: true,
     },
-    /*  image: {
-            type: String,
-            required: false,
-        }, */
-    role: {
+
+    city:{
+
+      type :String,
+      required: false,
+    },
+
+     role: {
       type: String,
       default: "user",
       enum: ["user", "admin", "co-admin"],
@@ -27,13 +30,7 @@ const UserSchema = new Schema(
     verificationCode: {
       type: Number,
     },
-    isEmailVerified: {
-      type: Boolean,
-      default: false,
-    },
-    passwordResetCode: {
-      type: String,
-    },
+   
   },
   { timeStamp: true }
 );
