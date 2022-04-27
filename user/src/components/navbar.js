@@ -172,7 +172,7 @@ function NavBar() {
   }
 
   const [user, setUser] = useState();
-
+  const [query, setQuery] = useState();
   useEffect(() => {
     //load subcategories from DB
     axios.get("http://localhost:3000/api/categorys/allCategorys").then((response) => {
@@ -452,12 +452,14 @@ function NavBar() {
       </MediaQuery>
       
       <Fade top when={searchopened} duration={500}>
-      <div style={{backgroundColor:'#ffffff', width:'100%', height:'60px',position:'fixed',zIndex:4,top:50,left:0, display:searchopened ? "" : 'none'}}>
+      <div style={{backgroundColor:'#000', width:'100%', height:'60px',position:'fixed',zIndex:4,top:50,left:0, display:searchopened ? "" : 'none'}}>
         <Center style={{height:'100%'}}>
-            <TextInput variant="filled" style={{width:'80%'}} ></TextInput>
-            <ActionIcon variant="light" style={{marginLeft:10,width:40, height:40, borderRadius:50}}>
+        <MantineProvider theme={{ colorScheme: 'dark' }}>
+            <TextInput variant="filled" style={{width:'80%'}} onChange={(e) => setQuery(e.target.value)}></TextInput>
+            <ActionIcon variant="light" style={{marginLeft:10,width:40, height:40, borderRadius:50}} component={Link} to={"/search/"+query}>
               <SearchRoundedIcon/>
             </ActionIcon>
+            </MantineProvider>
         </Center>
 
       </div>
