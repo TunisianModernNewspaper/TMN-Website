@@ -120,7 +120,7 @@ function LandingPage() {
             <LatestNews
               id={nws[2]._id}
               category='news'
-              subcategory={nws[2].category.title}
+              subcategory={nws[1].category.title}
               title={nws[2].title}
               description={nws[2].content}
               src={nws[2].newsImages}

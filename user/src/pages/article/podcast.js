@@ -7,6 +7,7 @@ import { Loader, Center} from "@mantine/core";
 import axios from "axios";
 import {useEffect, useState} from "react";
 import Footer from "../../components/footer";
+import SeeMore from "../../components/seealso";
 
 
 function PodcastPage() {
@@ -38,8 +39,8 @@ function PodcastPage() {
   return (
     <div>
       <NavBar />
-      
-      <div style={{ paddingLeft: "5%", paddingTop: 1, paddingBottom: 50 }}>
+      <div style={{display:'flex', flexDirection:'row'}}>
+      <div style={{width:'70%' , paddingLeft: "5%", paddingTop: 1, paddingBottom: 50 }}>
         <h1 style={{ color: "#000000", fontSize: 40 }}>{post.title}</h1>
         <YoutubeEmbed embedId={post.podcastLink.substring(32,43)}/>
         <div style={{marginLeft:20, marginTop:20}}>
@@ -49,6 +50,11 @@ function PodcastPage() {
 
         </div>
       </div>
+      <div style={{width:'30%', marginTop:'100px'}}>
+        <SeeMore/>
+      </div>
+      </div>
+      
       <Footer/>
     </div>
   );
