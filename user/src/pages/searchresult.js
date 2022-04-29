@@ -66,7 +66,7 @@ else{
       category="news"
       subcategory={blog.category.title}//{piece.category}
       description={blog.content}
-      src={blog.newsImages}
+      src={blog.newsImages[0]}
     />
     )      
   })
