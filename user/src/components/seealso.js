@@ -30,8 +30,8 @@ function SeeMore() {
     return ( 
         <div style={{width:'100%',height:'100%', paddingLeft:10,paddingTop:10}}>
             <h3>See Also:</h3>
-            <Smarticle category="news" subcategory={nws[0].category.title} id={nws[0]._id} title={nws[0].title} src={nws[0].newsImages} date={nws[0].createdAt.substring(0,10)}/>
-            <Smarticle category="news" subcategory={nws[1].category.title} id={nws[1]._id} title={nws[1].title} src={nws[1].newsImages} date={nws[1].createdAt.substring(0,10)}/>
+            <Smarticle category="news" subcategory={nws[0].category.title} id={nws[0]._id} title={nws[0].title} src={nws[0].newsImages[0]} date={nws[0].createdAt.substring(0,10)}/>
+            <Smarticle category="news" subcategory={nws[1].category.title} id={nws[1]._id} title={nws[1].title} src={nws[1].newsImages[0]} date={nws[1].createdAt.substring(0,10)}/>
             <Smarticle category="blogs" subcategory={blogs[0].category.title} id={blogs[0]._id} title={blogs[0].title} src={blogs[0].image} date={blogs[0].createdAt.substring(0,10)}/>
         </div>
      );
