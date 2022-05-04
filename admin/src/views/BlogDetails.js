@@ -24,6 +24,7 @@ const BlogDetails = () => {
       fetchData()  
     }, [])
 
+
     const handleDelete= (id) => {
       fetch(`http://localhost:3000/api/blogs/allblogs/${id}` , {
           method: 'DELETE'
@@ -32,6 +33,7 @@ const BlogDetails = () => {
           history.go(-1);
       })
     }
+
 
   return(
   
@@ -64,7 +66,7 @@ const BlogDetails = () => {
               <Card small className="card-post h-100">
                 <div
                   className="card-post__image"
-                  style={{ backgroundImage: `url(data:image/png;base64,${data.image})`, height: 400 }}
+                  style={{ backgroundImage: `url(data:image/png;base64,${data.image})`, height: 400 , objectFit: 'contain'}}
                 />
                 <CardBody>
                   <h5 className="card-title">
@@ -85,7 +87,7 @@ const BlogDetails = () => {
                   <span className="d-inline-block">
                     Created At
                     <p className="text-fiord-blue">
-                      {data.createdAt}
+                      {data.createdAt.substring(0,20)}
                     </p>
                   </span>
                   <div className="my-auto ml-auto">

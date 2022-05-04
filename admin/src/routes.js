@@ -25,6 +25,7 @@ import AddNewEvent from "./views/AddNewEvent";
 import BlogDetails from "./views/BlogDetails";
 import PodcastDetails from "./views/PodcastDetails";
 import EventDetails from "./views/EventDetails";
+import NewsDetails from "./views/NewsDetails";
 
 
 export default [
@@ -32,7 +33,8 @@ export default [
     path: "/",
     exact: true,
     layout: DefaultLayout,
-    component: () => <Redirect to="/admin" />
+
+    component: () => <Redirect to="/Blogs-management" />
   },
   {
     path: "/blog-overview",
@@ -136,6 +138,11 @@ export default [
     path: "/event-Details/:id",
     layout: DefaultLayout,
     component: EventDetails
+  },
+  {
+    path: "/news-details/:id",
+    layout: DefaultLayout,
+    component: NewsDetails
   },
   {
     path: "/podcast-Details/:id",
