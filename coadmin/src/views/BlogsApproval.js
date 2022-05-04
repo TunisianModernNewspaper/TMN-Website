@@ -69,6 +69,9 @@ const BlogsManagement = () => {
                   <th scope="col" className="border-0">
                     Action
                   </th>
+                  <th scope="col" className="border-0">
+                    Social Media
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -89,12 +92,14 @@ const BlogsManagement = () => {
                     </Badge>
                   </td>
                   <td>
-                    
                     <Link to={`/Blog-details/${blog._id}`}>
                         <Button outline size="sm" theme="info" className="mb-2 mr-1">
                         Info
                         </Button>
                     </Link>
+                  </td>
+                  <td>
+                    {blog.authorSocialMedia}
                   </td>
                 </tr>
                 ))}

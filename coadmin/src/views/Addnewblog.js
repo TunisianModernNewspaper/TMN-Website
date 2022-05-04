@@ -44,7 +44,7 @@ const AddNewBlog = () => {
     <Row noGutters className="page-header py-4">
       <PageTitle sm="4" title="Add New Post" subtitle="Blog Posts" className="text-sm-left" />
     </Row>
-    
+     
 
     {/* Components Navigation */}
     <Breadcrumb>
@@ -115,7 +115,12 @@ const AddNewBlog = () => {
             </InputGroupText>
           </InputGroupAddon>
           <FormInput placeholder="Author" onChange={() => {}} />
+          
         </InputGroup>
+        
+        <FormInput placeholder="Social Media" onChange={() =>{}}/>
+        
+        
         <Button theme="accent" size="xl" className="ml-auto">
           <i className="material-icons">file_copy</i> Publish
         </Button>
