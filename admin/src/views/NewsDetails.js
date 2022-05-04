@@ -3,7 +3,7 @@ import { Container, Row, Col, Breadcrumb, BreadcrumbItem, CardBody, Card, CardFo
 import { Link, useHistory, useParams } from "react-router-dom";
 import PageTitle from "../components/common/PageTitle";
 
-const PodcastDetails = () => {
+const NewsDetails = () => {
 
   let {id}=useParams()
   const history = useHistory();
@@ -11,7 +11,7 @@ const PodcastDetails = () => {
   const [data, setData] = useState('')
 
     const fetchData = () => {
-      fetch(`http://localhost:3000/api/podcasts/allPodcasts/${id}`)
+      fetch(`http://localhost:3000/api/news/oneNews/${id}`)
         .then(response => {
           return response.json()
         })
@@ -25,7 +25,7 @@ const PodcastDetails = () => {
     }, [])
 
     const handleDelete= (id) => {
-      fetch(`http://localhost:3000/api/podcasts/allPodcasts/${id}` , {
+      fetch(`http://localhost:3000/api/news/deleteNews/${id}` , {
           method: 'DELETE'
       }).then(() => {
           console.log("deleted");
@@ -39,7 +39,7 @@ const PodcastDetails = () => {
 
     {/* Page Header */}
     <Row noGutters className="page-header py-4">
-      <PageTitle sm="4" title="Podcast details" subtitle="Podcasts Management" className="text-sm-left" />
+      <PageTitle sm="4" title="News details" subtitle="News Management" className="text-sm-left" />
     </Row>
     
     {/* Components Navigation */}
@@ -48,7 +48,7 @@ const PodcastDetails = () => {
         <Link to="/">Dashboard</Link>
       </BreadcrumbItem>
       <BreadcrumbItem>
-        <Link to="/Podcasts-management">Podcast management</Link>
+        <Link to="/News-management">News Management</Link>
     </BreadcrumbItem>
     { data && (
     <BreadcrumbItem active>{data.title}</BreadcrumbItem>
@@ -64,7 +64,7 @@ const PodcastDetails = () => {
               <Card small className="card-post h-100">
                 <div
                   className="card-post__image"
-                  style={{ backgroundImage: `url(data:image/png;base64,${data.image})`, height: 400 }}
+                  style={{ backgroundImage: `url(data:image/png;base64,${data.newsImages})`, height: 400, objectFit: 'contain' }}
                 />
                 <CardBody>
                   <h5 className="card-title">
@@ -72,7 +72,7 @@ const PodcastDetails = () => {
                       {data.title}
                     </p>
                   </h5>
-                  <p className="card-text">{data.details}</p>
+                  <p className="card-text">{data.content}</p>
                 </CardBody>
                 <CardFooter className="text-muted border-top py-3">
                   <span className="d-inline-block">
@@ -105,4 +105,4 @@ const PodcastDetails = () => {
           
 }
 
-export default PodcastDetails;
+export default NewsDetails;
