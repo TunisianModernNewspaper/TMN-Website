@@ -22,6 +22,7 @@ import {  Container,
 const AddNewBlog = () => {
 
   const [categories,setCategories] = useState([]);
+  const [fileDataURL, setFileDataURL] = useState(null);
 
   const fetchData = () => {
     fetch("http://localhost:3000/api/categorys/allCategorys")
@@ -32,16 +33,16 @@ const AddNewBlog = () => {
         setCategories(data)
       })
   }
-
+ 
   useEffect(() => {
     fetchData()
-  }, [])
+  }, []);
 
     const [title,setTitle]= useState('');
     const [content,setContent]= useState('');
     const [category,setCategory]= useState('');
-    const [firstimage,setFirstImage]= useState(null);
-    const [secondimage,setSecondImage]= useState(null);
+    const [firstimage,setFirstImage]= useState('');
+    const [secondimage,setSecondImage]= useState('');
     const [author,setAuthor]= useState('');
     const [isPending, setIsPending] = useState(false);
     const history= useHistory();
@@ -49,24 +50,27 @@ const AddNewBlog = () => {
     const handleSubmit = (e) => {
       e.preventDefault();
 
-      const formData = new FormData()
+      /**const formData = new FormData()
         formData.append("title", title)
         formData.append("content", content)
         formData.append("category", category)
         formData.append("author", author)
         formData.append("firstimage", firstimage)
-        formData.append("secondimage", secondimage)
+        formData.append("secondimage", secondimage)**/
+        let formData = {'title':title, 'content':content,'category':category,'author':author,'image':firstimage,'image2':secondimage};
+        alert(JSON.stringify(formData))
+        
 
   
-      fetch('http://localhost:3000/api/blogs/addblog',formData, {
+      fetch('http://localhost:3000/api/blogs/addblog', {
         method: 'POST',
-        headers: { "Content-Type": "multipart/form-data" },
         body: JSON.stringify(formData)
       }).then(() => {
         console.log('new blog added');
         setIsPending(true);
         history.go(-1);
       })
+      
     }
   return(
   
@@ -127,8 +131,7 @@ const AddNewBlog = () => {
         <div className="custom-file mb-3">
           <input type="file" className="custom-file-input" id="customFile2" 
                     required={true}
-                    value={firstimage}
-                    onChange={(e) => setFirstImage(e.target.file[0])} />
+                    onChange={(e) => setFirstImage(e.target.files[0])} />
           <label className="custom-file-label" htmlFor="customFile2">
             Choose first image
           </label>
@@ -136,7 +139,6 @@ const AddNewBlog = () => {
         <div className="custom-file mb-3">
           <input type="file" className="custom-file-input" id="customFile2"
                     required={true}
-                    value={secondimage}
                     onChange={(e) => setSecondImage(e.target.files[0])} />
           <label className="custom-file-label" htmlFor="customFile2">
             Choose second image
