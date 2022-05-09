@@ -2,6 +2,10 @@ import React, {useState, useEffect} from "react";
 import PageTitle from "../components/common/PageTitle";
 import { Link, useHistory } from "react-router-dom";
 import ReactQuill from "react-quill";
+import FileBase64 from 'react-file-base64';
+import FileInputComponent from 'react-file-input-previews-base64'
+import axios from 'axios';
+
 
 import {  Container,
           Button,
@@ -22,7 +26,6 @@ import {  Container,
 const AddNewBlog = () => {
 
   const [categories,setCategories] = useState([]);
-  const [fileDataURL, setFileDataURL] = useState(null);
 
   const fetchData = () => {
     fetch("http://localhost:3000/api/categorys/allCategorys")
@@ -50,26 +53,24 @@ const AddNewBlog = () => {
     const handleSubmit = (e) => {
       e.preventDefault();
 
-      /**const formData = new FormData()
-        formData.append("title", title)
-        formData.append("content", content)
-        formData.append("category", category)
-        formData.append("author", author)
-        formData.append("firstimage", firstimage)
-        formData.append("secondimage", secondimage)**/
-        let formData = {'title':title, 'content':content,'category':category,'author':author,'image':firstimage,'image2':secondimage};
-        alert(JSON.stringify(formData))
         
+        let formData = {"title":title, content:content,category:category,author:author,image:firstimage.base64.split("base64,")[1],status:'approved'};
+        axios.post(`http://localhost:3000/api/blogs/addblog`, formData )
+        .then(res => {
+          setIsPending(true);
+          history.go(-1);
+        })
 
-  
-      fetch('http://localhost:3000/api/blogs/addblog', {
+      
+      /*fetch('http://localhost:3000/api/blogs/addblog', {
         method: 'POST',
-        body: JSON.stringify(formData)
+        body: formData
       }).then(() => {
         console.log('new blog added');
         setIsPending(true);
         history.go(-1);
-      })
+      })*/
+      
       
     }
   return(
@@ -123,28 +124,33 @@ const AddNewBlog = () => {
                     onChange={(e) => setCategory(e.target.value)}>
         {categories &&
                 categories.map((category) => (
-
-          <option>{category.title}</option>
+    
+          category.refrencesTo==='blogs'?<option value={category._id}>{category.title}</option>:''
         ))}
         </FormSelect>
         </InputGroup>
-        <div className="custom-file mb-3">
-          <input type="file" className="custom-file-input" id="customFile2" 
-                    required={true}
-                    onChange={(e) => setFirstImage(e.target.files[0])} />
+        
+        <FileInputComponent labelText=""
+          labelStyle={{fontSize:14}}
+          multiple={true}
+          callbackFunction={(file_arr)=>{setFirstImage(file_arr[0])}}
+          accept="image/*" 
+          imagePreview={true}
+          textBoxVisible={true}
+          buttonComponent={<></>}
+          textFieldComponent={
+          <div className="custom-file mb-3">
+          <input className="custom-file-input" id="customFile2" 
+                    required={false}
+                     />
           <label className="custom-file-label" htmlFor="customFile2">
-            Choose first image
+            {firstimage === '' ? "chose image" : firstimage.name}
           </label>
         </div>
-        <div className="custom-file mb-3">
-          <input type="file" className="custom-file-input" id="customFile2"
-                    required={true}
-                    onChange={(e) => setSecondImage(e.target.files[0])} />
-          <label className="custom-file-label" htmlFor="customFile2">
-            Choose second image
-          </label>
-        </div>
-
+        }
+          
+          />
+        
         <InputGroup seamless className="mb-3">
           <InputGroupAddon type="prepend">
             <InputGroupText>

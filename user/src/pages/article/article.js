@@ -5,6 +5,7 @@ import NavBar from "../../components/navbar";
 import { Loader, Center,Image} from "@mantine/core";
 import axios from "axios";
 import SeeMore from "../../components/seealso";
+import ReactHtmlParser from 'react-html-parser'; 
 
 function Article() {
   let { id, category} = useParams();
@@ -12,6 +13,12 @@ function Article() {
   let [imgx, setImgx] = useState("");
   let [imgar, setImgar] = useState([]);
   var imgrows = []
+
+  function htmlDecode(input){
+    var e = document.createElement('div');
+    e.innerHTML = input;
+    return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+  }
   useEffect(() => {
     async function getdata(){
       if (category==='news'){
@@ -33,6 +40,7 @@ function Article() {
       });
     }
     }
+    
     getdata();
     
   }, [id,post]);
@@ -50,10 +58,15 @@ function Article() {
     );
     else{
 
-      post.newsImages.slice(1).map((img) => {
-        imgrows.push(<Image src={`data:image/jpeg;base64,${img}`} alt="dis a pic" style={{width:'75%', margin:'15px'}}/>);
-        
-      })
+      if (category==='news'){
+        post.newsImages.slice(1).map((img) => {
+          imgrows.push(<Image src={`data:image/jpeg;base64,${img}`} alt="dis a pic" style={{width:'75%', margin:'15px'}}/>);
+          
+        })
+
+      }
+
+      
      
   return (
     <div style={{height:window.innerHeight}}>
@@ -68,7 +81,8 @@ function Article() {
       <div style={{ width:'75%' , marginLeft:'30px', marginTop:'80px'}}>
         <h1 style={{ color: "#353535", fontSize: 12, marginTop:'-20px' }}>{post.createdAt.substring(0,10)} - {post.createdAt.substring(11,16)}</h1>
         
-        <p style={{textAlign: 'justify',textJustify: 'inter-word', fontSize:'18px', lineHeight:'15  0%'}}>{post.content}</p>
+        <p style={{textAlign: 'justify',textJustify: 'inter-word', fontSize:'18px', lineHeight:'15  0%'}}>{ReactHtmlParser(post.content)}</p>
+        
         <div>
         {imgrows}
         </div>

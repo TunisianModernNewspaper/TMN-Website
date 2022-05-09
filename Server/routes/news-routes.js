@@ -20,7 +20,7 @@ router.post("/addNews",(req, res ,next)=>{
 
     const news = new News ({
         title : req.body.title ,
-        newsImages:base64_encode(req.body.newsImages),
+        newsImages:req.body.newsImages,
         category :req.body.category,
         content : req.body.content,
         author :req.body.author,
