@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import { Container, Row, Col, Breadcrumb, BreadcrumbItem, CardBody, Card, CardFooter, Button } from "shards-react";
 import { Link, useHistory, useParams } from "react-router-dom";
 import PageTitle from "../components/common/PageTitle";
+import ReactHtmlParser from 'react-html-parser';
 
 const BlogDetails = () => {
 
@@ -74,7 +75,7 @@ const BlogDetails = () => {
                       {data.title}
                     </p>
                   </h5>
-                  <p className="card-text">{data.content}</p>
+                  <p className="card-text">{ReactHtmlParser(data.content)}</p>
                 </CardBody>
                 <CardFooter className="text-muted border-top py-3">
                   <span className="d-inline-block">
