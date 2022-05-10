@@ -2,9 +2,10 @@ import React, {useState, useEffect} from "react";
 import PageTitle from "../components/common/PageTitle";
 import { Link, useHistory } from "react-router-dom";
 import ReactQuill from "react-quill";
-import FileBase64 from 'react-file-base64';
 import FileInputComponent from 'react-file-input-previews-base64'
 import axios from 'axios';
+import "react-quill/dist/quill.snow.css";
+import "../assets/quill.css";
 
 
 import {  Container,
@@ -45,7 +46,6 @@ const AddNewBlog = () => {
     const [content,setContent]= useState('');
     const [category,setCategory]= useState('');
     const [firstimage,setFirstImage]= useState('');
-    const [secondimage,setSecondImage]= useState('');
     const [author,setAuthor]= useState('');
     const [isPending, setIsPending] = useState(false);
     const history= useHistory();
@@ -95,6 +95,7 @@ const AddNewBlog = () => {
     <Row Form>
       {/* Editor */}
       <Col lg="12" md="12">
+      <Form>
       <form onSubmit={handleSubmit}>
 
         <Card small className="mb-3">
@@ -104,7 +105,7 @@ const AddNewBlog = () => {
                   required={true}
                   value={title}
                   onChange={(e) => setTitle(e.target.value)} />
-            <ReactQuill className="add-new-post__editor mb-1"
+            <ReactQuill theme="snow" className="add-new-post__editor mb-1"
                   required={true}
                   value={content}
                   onChange={setContent}
@@ -172,6 +173,7 @@ const AddNewBlog = () => {
         
       </Col>
     </form>
+    </Form>
     </Col>
     </Row>
   </Container>
