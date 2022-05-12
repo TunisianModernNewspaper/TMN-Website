@@ -7,6 +7,7 @@ import axios from "axios";
 import Footer from "../../components/footer";
 import ArticleCardNoB from "../../components/articleCardNoB";
 import get_youtube_thumbnail from "../../components/getthumbnail";
+import ReactHtmlParser from 'react-html-parser'; 
 
 function CategoryContent() {
   let { category } = useParams();
@@ -52,7 +53,7 @@ function CategoryContent() {
               id={piece._id}
               category={category}
               subcategory={piece.category.title}//{piece.category}
-              description={piece.content}
+              description={ReactHtmlParser(piece.content)}
               src={piece.newsImages[0]}
             />
           );
@@ -64,7 +65,7 @@ function CategoryContent() {
         id={piece._id}
         category={category}
         subcategory={piece.category.title}//{piece.category}
-        description={piece.content}
+        description={ReactHtmlParser(piece.content)}
         src={piece.image}
       />
     );

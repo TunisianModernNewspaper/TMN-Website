@@ -56,6 +56,7 @@ function SearchResult() {
       );
   }
 
+
 else{
     nws.map((blog) => {
         if (blog.title.toLowerCase().includes(query.toLowerCase()))
@@ -103,6 +104,22 @@ evnts.map((blog) => {
     rows.push(<EventCard id={blog._id} title={blog.title} location={blog.location} time={blog.hour} src={blog.eventPoster}></EventCard>)
 })
 
+if (rows.length===0){
+    return(
+      <div>
+    <NavBar />
+    
+    <div style={{ backgroundColor: "#f5f5f5", width: "100%", height: "100%" }}/>
+    <div style={{marginLeft:'30px'}}>
+    <center>
+    <h1 style={{ color: "#000000", fontSize: 40, marginTop:'40px', marginBottom:'25%' }}>No results founds</h1>
+    </center>
+    </div>
+    <Footer/> 
+    </div>
+    )
+}
+else{
   return (
     <div>
     <NavBar />
@@ -116,7 +133,7 @@ evnts.map((blog) => {
     <Footer/> 
     </div>
 
-  );
+  );}
 }}
 
 export default SearchResult;

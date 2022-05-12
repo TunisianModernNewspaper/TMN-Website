@@ -66,10 +66,8 @@ function Footer() {
                 <div style={{width:'100%', height: '100%', display:'flex', justifyContent:'center',alignItems:'center',flexDirection:'column'}}>
                     <Text style={{fontSize:'26px',marginRight:'20px', fontWeight:700, color:'#fff',display:'flex',alignSelf:'flex-end', marginTop:'-30px'}}>About Us</Text>
                     <Text style={{fontSize:'14px', marginRight:'20px',marginLeft:'20px', color:'#fff',textAlign: 'justify',textJustify: 'inter-word'}}>
-                        The mouth of the just shall meditate wisdom
-                        And his language shall be spoken in judgment.
-                        Blessed is he who suffers temptation
-                        Since he, with approval, shall receive the crown of life
+                    We post about what we think a Young TUNISIAN needs to become a better Version of themselves
+                    Recommendations, News, Opportunities, Events, Facts, Updates,...
                     </Text>
                  </div>
             </SimpleGrid>
@@ -101,10 +99,8 @@ function Footer() {
                 <div style={{width:'100%', height: '100%', display:'flex', justifyContent:'center',alignItems:'center',flexDirection:'column'}}>
                     <Text style={{fontSize:'26px',marginLeft:'20px', fontWeight:700, color:'#fff',display:'flex',alignSelf:'flex-start', marginTop:'30px'}}>About Us</Text>
                     <Text style={{fontSize:'14px', marginRight:'20px',marginLeft:'20px', color:'#fff',textAlign: 'justify',textJustify: 'inter-word'}}>
-                        The mouth of the just shall meditate wisdom
-                        And his language shall be spoken in judgment.
-                        Blessed is he who suffers temptation
-                        Since he, with approval, shall receive the crown of life
+                    We post about what we think a Young TUNISIAN needs to become a better Version
+                    Recommendations, News, Opportunities, Events, Facts, Updates,...
                     </Text>
                  </div>
                 </div>
