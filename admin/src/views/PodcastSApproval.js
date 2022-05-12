@@ -44,6 +44,11 @@ const PodcastsApproval = () => {
         <Card small className="mb-4 overflow-hidden">
           <CardHeader className="bg-dark">
             <h6 className="m-0 text-white">Podcasts list</h6>
+            <Link to="/new-podcast">
+              <Button outline theme="primary" className="mb-2 mr-1" style={{float: "right"}}>
+                Add Podcast
+              </Button>
+            </Link>
           </CardHeader>
           <CardBody className="bg-dark p-0 pb-3">
             <table className="table table-dark mb-0">

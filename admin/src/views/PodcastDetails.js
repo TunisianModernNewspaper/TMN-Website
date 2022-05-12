@@ -2,6 +2,8 @@ import React, {useEffect, useState} from "react";
 import { Container, Row, Col, Breadcrumb, BreadcrumbItem, CardBody, Card, CardFooter, Button } from "shards-react";
 import { Link, useHistory, useParams } from "react-router-dom";
 import PageTitle from "../components/common/PageTitle";
+import YoutubeEmbed from "../components/common/YoutubeEmbed";
+import ReactHtmlParser from 'react-html-parser';
 
 const PodcastDetails = () => {
 
@@ -25,7 +27,7 @@ const PodcastDetails = () => {
     }, [])
 
     const handleDelete= (id) => {
-      fetch(`http://localhost:3000/api/podcasts/allPodcasts/${id}` , {
+      fetch(`http://localhost:3000/api/podcasts/allPodcast/${id}` , {
           method: 'DELETE'
       }).then(() => {
           console.log("deleted");
@@ -62,23 +64,27 @@ const PodcastDetails = () => {
           { data && (
             <Col lg="12" md="12" sm="12" className="mb-4">
               <Card small className="card-post h-100">
-                <div
-                  className="card-post__image"
-                  style={{ backgroundImage: `url(data:image/png;base64,${data.image})`, height: 400 }}
-                />
+                <YoutubeEmbed embedId={data.podcastLink.substring(32,43)}/>
                 <CardBody>
                   <h5 className="card-title">
                     <p className="text-fiord-blue">
                       {data.title}
                     </p>
                   </h5>
-                  <p className="card-text">{data.details}</p>
+                  <p className="card-text">{ReactHtmlParser(data.details)}</p>
                 </CardBody>
                 <CardFooter className="text-muted border-top py-3">
                   <span className="d-inline-block">
                     Written By
                     <p className="text-fiord-blue">
                       {data.author}
+                    </p>
+                  </span>
+                  <br/>
+                  <span className="d-inline-block">
+                    Guests
+                    <p className="text-fiord-blue">
+                      {data.guests}
                     </p>
                   </span>
                   <br/>

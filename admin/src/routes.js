@@ -22,6 +22,7 @@ import Categories from "./views/Categories";
 import NewSubCategory from "./views/NewSubCategory";
 import AddNewNews from "./views/AddNewNews";
 import AddNewEvent from "./views/AddNewEvent";
+import AddNewPodcast from "./views/AddNewPodcast";
 import BlogDetails from "./views/BlogDetails";
 import PodcastDetails from "./views/PodcastDetails";
 import EventDetails from "./views/EventDetails";
@@ -148,5 +149,10 @@ export default [
     path: "/podcast-Details/:id",
     layout: DefaultLayout,
     component: PodcastDetails
+  },
+  {
+    path: "/new-podcast",
+    layout: DefaultLayout,
+    component: AddNewPodcast
   },
 ];
