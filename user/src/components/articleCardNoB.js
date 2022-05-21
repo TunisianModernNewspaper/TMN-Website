@@ -1,6 +1,7 @@
 import React from "react";
 import { MediaQuery, Card, Image, Text } from "@mantine/core";
 import { Link } from "react-router-dom";
+import ReactHtmlParser from 'react-html-parser'; 
 
 const hide = { display: "none" };
 function ArticleCardNoB(props) {
@@ -23,7 +24,7 @@ function ArticleCardNoB(props) {
             {props.title}
             </Text>
             <Text size="sm" lineClamp={2} style={{  color:'#e3e3e3',paddingRight:20}}>
-            <b>{props.description}</b>
+            <b>{ReactHtmlParser(props.description)}</b>
             </Text>
             </div>
             
@@ -48,7 +49,7 @@ function ArticleCardNoB(props) {
             {props.title}
             </Text>
             <Text size="sm" lineClamp={3} style={{  color:'#e3e3e3'}}>
-            {props.description}
+            {ReactHtmlParser(props.description)}
             </Text>
             </div>
           </Card.Section>

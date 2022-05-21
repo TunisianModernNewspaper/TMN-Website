@@ -8,6 +8,7 @@ import axios from "axios";
 import {useEffect, useState} from "react";
 import Footer from "../../components/footer";
 import SeeMore from "../../components/seealso";
+import ReactHtmlParser from 'react-html-parser';
 
 function PodcastPage() {
   let {id} = useParams();
@@ -46,7 +47,7 @@ function PodcastPage() {
         <div style={{marginLeft:20, marginTop:20}}>
         <Text style={{fontSize:25, fontWeight:700}}>{post.videoTeaser}</Text>
         
-        <Text>{post.details}</Text>
+        <Text>{ReactHtmlParser(post.details)}</Text>
 
         </div>
       </div>

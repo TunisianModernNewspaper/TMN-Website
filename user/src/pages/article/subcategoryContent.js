@@ -63,7 +63,7 @@ function SubCategoryContent() {
           />
     );}
   }
-    
+  rows.reverse();
     return "";
  });
 }

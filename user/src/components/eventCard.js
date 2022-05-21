@@ -43,7 +43,7 @@ function EventCard(props) {
           to={"/" + props.category + "/" + props.id}
         >
           <Card.Section>
-            <Image src={`data:image/jpeg;base64,${props.src}`} height={300} withPlaceholder />
+            <Image src={`data:image/jpeg;base64,${props.src}`} fit={"cover"} height={300} withPlaceholder />
             <div style={{position:'absolute', paddingLeft:20,bottom:0, left:0, backgroundColor:'#00000066', height:100, width:'100%'}}>
             <Text style={{ marginTop: "10px", color:'#fff' }} weight={500} size="xl">
             {props.title}

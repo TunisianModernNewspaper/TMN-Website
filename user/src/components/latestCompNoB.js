@@ -1,6 +1,7 @@
 import { Text, Card, Image } from "@mantine/core";
 import React from "react";
 import { Link } from "react-router-dom";
+import ReactHtmlParser from 'react-html-parser';
 
 function LatestNewsNoB(props) {
   return (
@@ -20,7 +21,7 @@ function LatestNewsNoB(props) {
           {props.title}
         </Text>
 
-        <Text size="sm" lineClamp={1}>{props.description}</Text>
+        <Text size="sm" lineClamp={1}>{ReactHtmlParser(props.description)}</Text>
       </Card>
     </div>
   );
