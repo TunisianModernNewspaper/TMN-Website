@@ -27,16 +27,16 @@ function LandingPage() {
     document.title = "Home Page"
     function getdata(){
       axios.get("http://localhost:3000/api/blogs/allblogs").then((response) => {
-        setBlogs(response.data);
+        setBlogs(response.data.reverse());
       });
       axios.get("http://localhost:3000/api/podcasts/allpodcasts").then((response) => {
-        setPods(response.data);
+        setPods(response.data.reverse());
       });
       axios.get("http://localhost:3000/api/event/allEvents").then((response) => {
-        setEvnts(response.data);
+        setEvnts(response.data.reverse());
       });
       axios.get("http://localhost:3000/api/news/allNews").then((response) => {
-        setNws(response.data);
+        setNws(response.data.reverse());
       });
     }
     getdata();

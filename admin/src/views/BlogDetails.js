@@ -10,7 +10,7 @@ const BlogDetails = () => {
   const history = useHistory();
   
   const [data, setData] = useState('')
-
+ 
     const fetchData = () => {
       fetch(`http://localhost:3000/api/blogs/detail/${id}`)
         .then(response => {

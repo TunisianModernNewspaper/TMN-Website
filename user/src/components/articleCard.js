@@ -1,6 +1,7 @@
 import React from "react";
 import { MediaQuery, Card, Image, Text } from "@mantine/core";
 import { Link } from "react-router-dom";
+import ReactHtmlParser from 'react-html-parser'; 
 
 const hide = { display: "none" };
 function ArticleCard(props) {
@@ -48,7 +49,7 @@ function ArticleCard(props) {
             {props.title}
             </Text>
             <Text size="sm" lineClamp={3} style={{  color:'#e3e3e3'}}>
-            {props.description}
+            {ReactHtmlParser(props.description)}
             </Text>
             </div>
           </Card.Section>

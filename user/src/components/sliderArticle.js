@@ -1,6 +1,7 @@
 import { Image, Text, MediaQuery, SimpleGrid } from "@mantine/core";
 import React from "react";
 import { Link } from "react-router-dom";
+import ReactHtmlParser from 'react-html-parser';
 
 const hide = { display: "none" };
 function SliderArticle(props) {
@@ -10,7 +11,7 @@ function SliderArticle(props) {
         <SimpleGrid cols={2} style={{ height: "50vh", width: "100%" }}>
           <div style={{ width: "130%", backgroundColor: "#FFFFFF" }}>
             <Image
-              style={{ width: "100%", height: "100%",objectFit:'cover',  }}
+              style={{ width: "700px", height: "100%",objectFit:'cover',  }}
               fit="cover"
               src={props.src}
             />
@@ -28,7 +29,7 @@ function SliderArticle(props) {
               {props.title}
             </Text>
             <Text weight={300} lineClamp={4} style={{ fontSize: "14px", color: "#fff" }}>
-              {props.description}
+              {ReactHtmlParser(props.description)}
             </Text>
             <Text
               component={Link}

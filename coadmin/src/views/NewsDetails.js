@@ -4,16 +4,15 @@ import { Link, useHistory, useParams } from "react-router-dom";
 import PageTitle from "../components/common/PageTitle";
 import ReactHtmlParser from 'react-html-parser';
 
-const EventDetails = () => {
+const NewsDetails = () => {
 
   let {id}=useParams()
-  
   const history = useHistory();
   
   const [data, setData] = useState('')
 
     const fetchData = () => {
-      fetch(`http://localhost:3000/api/event/allEvents/${id}`)
+      fetch(`http://localhost:3000/api/news/oneNews/${id}`)
         .then(response => {
           return response.json()
         })
@@ -27,7 +26,7 @@ const EventDetails = () => {
     }, [])
 
     const handleDelete= (id) => {
-      fetch(`http://localhost:3000/api/event/deleteEvents/${id}` , {
+      fetch(`http://localhost:3000/api/news/deleteNews/${id}` , {
           method: 'DELETE'
       }).then(() => {
           console.log("deleted");
@@ -41,7 +40,7 @@ const EventDetails = () => {
 
     {/* Page Header */}
     <Row noGutters className="page-header py-4">
-      <PageTitle sm="4" title="Event details" subtitle="Events Management" className="text-sm-left" />
+      <PageTitle sm="4" title="News details" subtitle="News Management" className="text-sm-left" />
     </Row>
     
     {/* Components Navigation */}
@@ -50,7 +49,7 @@ const EventDetails = () => {
         <Link to="/">Dashboard</Link>
       </BreadcrumbItem>
       <BreadcrumbItem>
-        <Link to="/Events-management">Events Management</Link>
+        <Link to="/News-management">News Management</Link>
     </BreadcrumbItem>
     { data && (
     <BreadcrumbItem active>{data.title}</BreadcrumbItem>
@@ -66,7 +65,7 @@ const EventDetails = () => {
               <Card small className="card-post h-100">
                 <div
                   className="card-post__image"
-                  style={{ backgroundImage: `url(data:image/png;base64,${data.eventPoster})`, height: 500 , objectFit: 'fill'}}
+                  style={{ backgroundImage: `url(data:image/png;base64,${data.newsImages})`, height: 400, objectFit: 'contain' }}
                 />
                 <CardBody>
                   <h5 className="card-title">
@@ -78,33 +77,19 @@ const EventDetails = () => {
                 </CardBody>
                 <CardFooter className="text-muted border-top py-3">
                   <span className="d-inline-block">
-                    Located at:
+                    Written By
                     <p className="text-fiord-blue">
-                      {data.location}
+                      {data.author}
                     </p>
                   </span>
                   <br/>
                   <span className="d-inline-block">
-                    Hour:
-                    <p className="text-fiord-blue">
-                      {data.hour}
-                    </p>
-                  </span>
-                  <br/>
-                  <span className="d-inline-block">
-                    Date:
-                    <p className="text-fiord-blue">
-                      {data.date.substring(0,15)}
-                    </p>
-                  </span>
-                  <br/>
-                  <span className="d-inline-block">
-                    Created at:
+                    Created At
                     <p className="text-fiord-blue">
                       {data.createdAt.substring(0,20)}
                     </p>
                   </span>
-                
+                 
                 </CardFooter>
               </Card>
             </Col>
@@ -117,4 +102,4 @@ const EventDetails = () => {
           
 }
 
-export default EventDetails;
+export default NewsDetails;
